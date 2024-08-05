@@ -7,6 +7,11 @@ The lab consists of two containers running an SSH server, allowing for SSH commu
 
 ## Setup Instructions
 
+### Pre-requisites
+
+- [Docker & Docker Compose](https://www.docker.com/get-started)
+- [Git](https://github.com/git-guides/install-git)
+
 ### Clone the Repository
 
 Clone this repository to your local machine:
@@ -53,7 +58,7 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ssh-
 
     Replace `<IP_ADDRESS_OF_SSH_SERVER2>` with the actual IP address obtained from the previous step.
 
-    Use the password `studentpassword` when prompted.
+    Use the password `pxl` when prompted.
 
 ## Cleanup
 
