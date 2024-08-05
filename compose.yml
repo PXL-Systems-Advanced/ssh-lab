@@ -1,0 +1,8 @@
+services:
+  ssh-server1:
+    build: .
+    container_name: ssh-server1
+
+  ssh-server2:
+    build: .
+    container_name: ssh-server2
