@@ -5,9 +5,12 @@ FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install OpenSSH server and other necessary tools
+# And clean up the apt cache to reduce the image layer size
 RUN apt-get update && apt-get install -y \
   openssh-server \
-  ubuntu-minimal
+  ubuntu-minimal \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create new user 'student' with sudo privileges
 RUN useradd -rm -d /home/student -s /bin/bash -g root -G sudo -u 1001 student
