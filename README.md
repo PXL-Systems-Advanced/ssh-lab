@@ -26,7 +26,7 @@ cd ssh-lab
 Use Docker Compose to build the images and start the containers:
 
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
 
 This will build the Docker image from the Dockerfile and start two containers, `ssh-server1` and `ssh-server2`.
@@ -54,6 +54,6 @@ This will build the Docker image from the Dockerfile and start two containers, `
 To stop and remove the containers, run:
 
 ```sh
-docker-compose down
+docker compose down
 ```
 
