@@ -1,5 +1,5 @@
 # Use a base image with OpenSSH server installed
-FROM ubuntu:latest
+FROM ubuntu:24.04
 
 # Set non-interactive frontend for debconf
 ENV DEBIAN_FRONTEND=noninteractive
