@@ -1,17 +1,22 @@
 # Use a base image with OpenSSH server installed
 FROM ubuntu:latest
 
-# Install OpenSSH server
-RUN apt-get update && apt-get install -y openssh-server ubuntu-minimal ubuntu-standard
+# Set non-interactive frontend for debconf
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Create a new user
+# Install OpenSSH server and other necessary tools
+RUN apt-get update && apt-get install -y \
+  openssh-server \
+  ubuntu-minimal
+
+# Create new user 'student' with sudo privileges
 RUN useradd -rm -d /home/student -s /bin/bash -g root -G sudo -u 1001 student
 
-# Set password for the student and root user
+# Set password for the 'student' and 'root' user
 RUN echo 'student:pxl' | chpasswd
 RUN echo 'root:pxl' | chpasswd
 
-# Create necessary directories
+# Create necessary directories for sshd
 RUN mkdir /var/run/sshd
 
 # Expose SSH port
