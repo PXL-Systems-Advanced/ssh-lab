@@ -1,8 +1,14 @@
 services:
   ssh-server1:
     build: .
+    hostname: ssh-server1
+    cap_add:
+      - SYS_ADMIN
     container_name: ssh-server1
 
   ssh-server2:
     build: .
+    hostname: ssh-server2
+    cap_add:
+      - SYS_ADMIN
     container_name: ssh-server2

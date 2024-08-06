@@ -33,15 +33,6 @@ This will build the Docker image from the Dockerfile and start two containers, `
 
 ## Usage
 
-### Get Container IP Addresses
-
-To SSH between the containers, you need their IP addresses. Run the following commands to get the IP addresses:
-
-```sh
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ssh-server1
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ssh-server2
-```
-
 ### SSH Between Containers
 
 1. Exec into `ssh-server1`:
@@ -53,10 +44,8 @@ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ssh-
 2. Inside `ssh-server1`, SSH into `ssh-server2`:
 
     ```sh
-    ssh student@<IP_ADDRESS_OF_SSH_SERVER2>
+    ssh student@ssh-server2
     ```
-
-    Replace `<IP_ADDRESS_OF_SSH_SERVER2>` with the actual IP address obtained from the previous step.
 
     Use the password `pxl` when prompted.
 
