@@ -1,4 +1,4 @@
-# Use a base image with OpenSSH server installed
+# Use official ubuntu base image
 FROM ubuntu:24.04
 
 # Set non-interactive frontend for debconf
