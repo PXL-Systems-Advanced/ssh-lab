@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Install OpenSSH server
-RUN apt-get update && apt-get install -y openssh-server ubuntu-standard
+RUN apt-get update && apt-get install -y openssh-server ubuntu-minimal ubuntu-standard
 
 # Create a new user
 RUN useradd -rm -d /home/student -s /bin/bash -g root -G sudo -u 1001 student
