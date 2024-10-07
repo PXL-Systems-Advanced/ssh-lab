@@ -17,7 +17,7 @@ The lab consists of two containers running an SSH server, allowing for SSH commu
 Clone this repository to your local machine:
 
 ```sh
-git clone PXL-Systems-Advanced/ssh-lab
+git clone https://github.com/PXL-Systems-Advanced/ssh-lab
 cd ssh-lab
 ```
 
