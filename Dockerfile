@@ -1,11 +1,10 @@
-# Use official ubuntu base image
+# Use official Ubuntu base image
 FROM ubuntu:24.04
 
 # Set non-interactive frontend for debconf
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install OpenSSH server and other necessary tools
-# And clean up the apt cache to reduce the image layer size
 RUN apt-get update && apt-get install -y \
   openssh-server \
   ubuntu-minimal \
@@ -22,8 +21,11 @@ RUN echo 'root:pxl' | chpasswd
 # Create necessary directories for sshd
 RUN mkdir /var/run/sshd
 
+# Ensure no SSH host keys are present in the image (to force regeneration)
+RUN rm -f /etc/ssh/ssh_host_*_key /etc/ssh/ssh_host_*_key.pub
+
 # Expose SSH port
 EXPOSE 22
 
-# Main process: SSH service
-CMD ["/usr/sbin/sshd", "-D"]
+# Command to regenerate SSH keys on container startup if they don't exist, and start the SSH service
+CMD ["/bin/sh", "-c", "test -f /etc/ssh/ssh_host_ed25519_key || ssh-keygen -A && exec /usr/sbin/sshd -D"]

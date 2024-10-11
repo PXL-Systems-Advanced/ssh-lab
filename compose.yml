@@ -5,6 +5,10 @@ services:
     cap_add:
       - SYS_ADMIN
     container_name: ssh-server1
+    volumes:
+      - ssh-keys-server1:/etc/ssh
+    ports:
+      - "2222:22"  # Map port for SSH access
 
   ssh-server2:
     build: .
@@ -12,3 +16,12 @@ services:
     cap_add:
       - SYS_ADMIN
     container_name: ssh-server2
+    volumes:
+      - ssh-keys-server2:/etc/ssh
+    ports:
+      - "2223:22"  # Map port for SSH access
+
+volumes:
+  ssh-keys-server1:
+  ssh-keys-server2:
+  
