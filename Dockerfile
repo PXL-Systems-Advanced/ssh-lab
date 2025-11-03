@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install OpenSSH server and other necessary tools
 RUN apt-get update && apt-get install -y \
   openssh-server \
+  nano \
   ubuntu-minimal \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
