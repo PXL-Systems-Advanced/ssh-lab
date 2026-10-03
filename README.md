@@ -1,59 +1,11 @@
-# Systems Advanced: Linux Containers
-# SSH Lab
+# SSH practice servers
 
-This repository contains the configuration files to set up a lab environment for practicing SSH using Docker containers.
+Two Ubuntu SSH servers in containers, for the SSH lab of the PXL Docker course. You use them to practise host keys, password login and key-based login.
 
-The lab consists of two containers running an SSH server, allowing for SSH communication between them.
+The password `pxl` is weak on purpose. Use these servers on your own laptop only: both ports are published on `127.0.0.1`. Logging in as `root` over SSH is not allowed.
 
-## Setup Instructions
+Do not use these files for a real server.
 
-### Pre-requisites
+Course: <https://pxl-systems-advanced.github.io/docker-labs/>
 
-- [Docker & Docker Compose](https://www.docker.com/get-started)
-- [Git](https://github.com/git-guides/install-git)
-
-### Clone the Repository
-
-Clone this repository to your local machine:
-
-```sh
-git clone https://github.com/PXL-Systems-Advanced/ssh-lab
-cd ssh-lab
-```
-
-### Build and Run the Containers
-
-Use Docker Compose to build the images and start the containers:
-
-```sh
-docker compose up -d
-```
-
-This will build the Docker image from the Dockerfile and start two containers, `ssh-server1` and `ssh-server2`.
-
-## Usage
-
-### SSH Between Containers
-
-1. Exec into `ssh-server1`:
-
-    ```sh
-    docker exec -it ssh-server1 bash
-    ```
-
-2. Inside `ssh-server1`, SSH into `ssh-server2`:
-
-    ```sh
-    ssh student@ssh-server2
-    ```
-
-    Use the password `pxl` when prompted.
-
-## Cleanup
-
-To stop and remove the containers, run:
-
-```sh
-docker compose down
-```
-
+The files are licensed under the MIT License. See `LICENSE`.
